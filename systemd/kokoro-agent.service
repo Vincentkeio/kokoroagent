@@ -1,0 +1,14 @@
+[Unit]
+Description=Kokoro Agent
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/kokoro-agent -config /etc/kokoro-agent/config.json
+Restart=always
+RestartSec=3
+User=root
+
+[Install]
+WantedBy=multi-user.target
